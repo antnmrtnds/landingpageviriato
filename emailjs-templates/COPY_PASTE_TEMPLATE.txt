@@ -1,0 +1,133 @@
+================================================================================
+EmailJS AUTO-REPLY TEMPLATE - COPY & PASTE READY
+================================================================================
+
+TEMPLATE 1: DETAILED VERSION (Recommended)
+-------------------------------------------
+
+Template Settings:
+- Template Name: Viriato Contact Form - Auto Reply
+- Subject: Thank you for contacting Viriato - We received your inquiry
+- To Email: {{from_email}}
+- From Email: hello@viriato.com.pt
+- From Name: Viriato Team
+- Reply To: hello@viriato.com.pt
+
+HTML Content (copy everything below this line):
+-------------------------------------------
+
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 16px">
+  <a style="text-decoration: none; outline: none" href="https://viriato.com.pt" target="_blank">
+    <img style="height: 32px; vertical-align: middle" height="32px" src="cid:logo.png" alt="Viriato Logo" />
+  </a>
+  <p style="padding-top: 16px; border-top: 1px solid #eaeaea">Hi {{from_name}},</p>
+  <p>
+    Thank you for reaching out to us! We have received your inquiry about "{{project_type}}", and we'll do our
+    best to process it within 3 business days.
+  </p>
+  <p style="margin-top: 20px; padding: 16px; background-color: #f9f9f9; border-left: 4px solid #4CAF50; border-radius: 4px;">
+    <strong>Your submission details:</strong><br/>
+    <strong>Name:</strong> {{from_name}}<br/>
+    <strong>Email:</strong> {{from_email}}<br/>
+    <strong>Company:</strong> {{company}}<br/>
+    <strong>Project Type:</strong> {{project_type}}<br/>
+    <strong>Message:</strong><br/>
+    {{message}}
+  </p>
+  <p>
+    If you have any urgent questions, please don't hesitate to reach out to us directly at 
+    <a href="mailto:hello@viriato.com.pt" style="color: #4CAF50; text-decoration: none;">hello@viriato.com.pt</a>
+  </p>
+  <p style="padding-top: 16px; border-top: 1px solid #eaeaea">
+    Best regards,<br />The Viriato Team
+  </p>
+  <p style="margin-top: 30px; font-size: 12px; color: #999;">
+    This is an automated confirmation email. Please do not reply directly to this email.
+  </p>
+</div>
+
+================================================================================
+
+TEMPLATE 2: SIMPLE VERSION (Minimal)
+-------------------------------------
+
+Template Settings:
+- Template Name: Viriato Auto-Reply (Simple)
+- Subject: Thank you for contacting Viriato
+- To Email: {{from_email}}
+- From Email: hello@viriato.com.pt
+- From Name: Viriato Team
+- Reply To: hello@viriato.com.pt
+
+HTML Content (copy everything below this line):
+-------------------------------------------
+
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 16px">
+  <a style="text-decoration: none; outline: none" href="https://viriato.com.pt" target="_blank">
+    <img style="height: 32px; vertical-align: middle" height="32px" src="cid:logo.png" alt="logo" />
+  </a>
+  <p style="padding-top: 16px; border-top: 1px solid #eaeaea">Hi {{from_name}},</p>
+  <p>
+    Thank you for reaching out to us! We have received your request: "{{project_type}}", and we'll do our
+    best to process it within 3 business days.
+  </p>
+  <p style="padding-top: 16px; border-top: 1px solid #eaeaea">
+    Best regards,<br />The Viriato Team
+  </p>
+</div>
+
+================================================================================
+
+INTERNAL NOTIFICATION TEMPLATE
+-------------------------------
+
+Template Settings:
+- Template Name: Viriato Contact Form - Internal
+- Subject: New Contact Form Submission from {{from_name}}
+- To Email: hello@viriato.com.pt
+- From Email: {{from_email}}
+- From Name: {{from_name}}
+
+Content (plain text):
+-------------------------------------------
+
+New contact form submission:
+
+Name: {{from_name}}
+Email: {{from_email}}
+Company: {{company}}
+Project Type: {{project_type}}
+
+Message:
+{{message}}
+
+---
+This message was sent from the Viriato website contact form.
+
+================================================================================
+
+IMPORTANT NOTES:
+
+1. Logo Image:
+   - If using logo (src="cid:logo.png"), upload your logo in the 
+     "Attachments" section of the EmailJS template
+   - OR replace with direct URL: src="https://yoursite.com/logo.png"
+   - OR remove the <img> tag entirely
+
+2. Website Link:
+   - Replace "https://viriato.com.pt" with your actual website URL
+
+3. Variables:
+   - {{from_name}} - User's name
+   - {{from_email}} - User's email
+   - {{company}} - User's company
+   - {{project_type}} - Type of project
+   - {{message}} - User's message
+
+4. Colors:
+   - #4CAF50 is green - change to match your brand
+   - #eaeaea is light gray for borders
+   - #f9f9f9 is background gray
+
+================================================================================
+

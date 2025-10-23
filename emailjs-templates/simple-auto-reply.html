@@ -1,0 +1,33 @@
+<!-- 
+  SIMPLE VERSION - Matches exactly the standard EmailJS design you provided
+  
+  Use this if you want a cleaner, simpler confirmation email
+-->
+
+<!-- 
+  TEMPLATE SETTINGS:
+  
+  Template Name: Viriato Auto-Reply (Simple)
+  Subject: Thank you for contacting Viriato
+  To Email: {{from_email}}
+  From Email: hello@viriato.com.pt
+  From Name: Viriato Team
+  Reply To: hello@viriato.com.pt
+-->
+
+<!-- TEMPLATE HTML CONTENT -->
+
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 16px">
+  <a style="text-decoration: none; outline: none" href="https://viriato.com.pt" target="_blank">
+    <img style="height: 32px; vertical-align: middle" height="32px" src="cid:logo.png" alt="logo" />
+  </a>
+  <p style="padding-top: 16px; border-top: 1px solid #eaeaea">Hi {{from_name}},</p>
+  <p>
+    Thank you for reaching out to us! We have received your request: "{{project_type}}", and we'll do our
+    best to process it within 3 business days.
+  </p>
+  <p style="padding-top: 16px; border-top: 1px solid #eaeaea">
+    Best regards,<br />The Viriato Team
+  </p>
+</div>
+

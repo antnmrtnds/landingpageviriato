@@ -1,0 +1,58 @@
+<!-- 
+  EmailJS Auto-Reply Template for Viriato Contact Form
+  
+  INSTRUCTIONS:
+  1. Go to https://dashboard.emailjs.com/admin/templates
+  2. Click "Create New Template"
+  3. Copy the HTML below into the "Content" section
+  4. Configure the template settings as specified below
+-->
+
+<!-- 
+  TEMPLATE SETTINGS:
+  
+  Template Name: Viriato Contact Form - Auto Reply
+  
+  Subject: Thank you for contacting Viriato - We received your inquiry
+  
+  To Email: {{from_email}}
+  
+  From Email: hello@viriato.com.pt (or noreply@viriato.com.pt)
+  
+  From Name: Viriato Team
+  
+  Reply To: hello@viriato.com.pt
+-->
+
+<!-- TEMPLATE HTML CONTENT (Copy everything below) -->
+
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 16px">
+  <a style="text-decoration: none; outline: none" href="https://viriato.com.pt" target="_blank">
+    <img style="height: 32px; vertical-align: middle" height="32px" src="cid:logo.png" alt="Viriato Logo" />
+  </a>
+  <p style="padding-top: 16px; border-top: 1px solid #eaeaea">Hi {{from_name}},</p>
+  <p>
+    Thank you for reaching out to us! We have received your inquiry about "{{project_type}}", and we'll do our
+    best to process it within 3 business days.
+  </p>
+  <p style="margin-top: 20px; padding: 16px; background-color: #f9f9f9; border-left: 4px solid #4CAF50; border-radius: 4px;">
+    <strong>Your submission details:</strong><br/>
+    <strong>Name:</strong> {{from_name}}<br/>
+    <strong>Email:</strong> {{from_email}}<br/>
+    <strong>Company:</strong> {{company}}<br/>
+    <strong>Project Type:</strong> {{project_type}}<br/>
+    <strong>Message:</strong><br/>
+    {{message}}
+  </p>
+  <p>
+    If you have any urgent questions, please don't hesitate to reach out to us directly at 
+    <a href="mailto:hello@viriato.com.pt" style="color: #4CAF50; text-decoration: none;">hello@viriato.com.pt</a>
+  </p>
+  <p style="padding-top: 16px; border-top: 1px solid #eaeaea">
+    Best regards,<br />The Viriato Team
+  </p>
+  <p style="margin-top: 30px; font-size: 12px; color: #999;">
+    This is an automated confirmation email. Please do not reply directly to this email.
+  </p>
+</div>
+

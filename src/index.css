@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #191710;
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Squircle Button Styles */
+.squircle-btn {
+  padding: 10px 20px;
+  background: #d29d79;
+  color: #191710;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.squircle-btn:hover {
+  background: #b88560;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(210, 157, 121, 0.3);
+}
+
+.squircle-btn-outline {
+  padding: 10px 20px;
+  background: transparent;
+  color: #d29d79;
+  font-size: 16px;
+  border: 1px solid #d29d79;
+  cursor: pointer;
+  border-radius: 20px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.squircle-btn-outline:hover {
+  background: #d29d79;
+  color: #191710;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(210, 157, 121, 0.3);
+}
+

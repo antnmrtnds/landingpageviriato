@@ -1,0 +1,7 @@
+Feature                 |  Recommended Language/Framework  |  Purpose                              
+------------------------+----------------------------------+---------------------------------------
+Page Structure          |  HTML                            |  Content Organization                 
+Styling & Animations    |  Tailwind CSS                    |  Layout, Visual Effects               
+Basic Interactivity     |  JavaScript (Vanilla)            |  User Engagement                      
+Advanced Interactivity  |  React.js                        |  SPA, Dynamic Content                 
+Advanced Animations     | Framer Motion                    |  Scroll, Loader, Cinematic Transitions
