@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 const Hero = () => {
   return (
-    <section className="fixed top-[93px] md:top-[103px] left-0 right-0 w-full bg-primary-bg flex flex-col items-center justify-center gap-[35px] z-[5] px-[40px] md:px-[60px] lg:px-[80px] pt-[40px] md:pt-[60px] lg:pt-[80px] pb-[30px] md:pb-[40px] lg:pb-[50px]">
+    <section className="relative md:fixed top-0 md:top-[103px] left-0 right-0 w-full bg-primary-bg flex flex-col items-center justify-center gap-[35px] z-[5] px-[40px] md:px-[60px] lg:px-[80px] pt-[40px] md:pt-[60px] lg:pt-[80px] pb-[30px] md:pb-[40px] lg:pb-[50px]">
       {/* Content */}
       <div className="flex flex-col items-center gap-[35px] w-full max-w-[480px] md:max-w-[649px] lg:max-w-[731px] xl:max-w-[826px]">
         {/* Heading */}
@@ -63,7 +63,7 @@ const Hero = () => {
       {/* CTA Button */}
       <motion.button 
         onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })} 
-        className="squircle-btn-outline text-[12px] md:text-[14px] capitalize mb-[30px] md:mb-[40px] lg:mb-[50px]"
+        className="squircle-btn-outline text-[12px] md:text-[14px] capitalize mb-[40px] md:mb-[48px] lg:mb-[50px]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}

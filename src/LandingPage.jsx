@@ -17,7 +17,7 @@ const LandingPage = () => {
       <Hero />
 
       {/* Scrollable Content - Scrolls over header and hero */}
-      <div className="relative z-20 bg-primary-bg mt-[600px] md:mt-[700px] lg:mt-[800px]">
+      <div className="relative z-20 bg-primary-bg mt-0 md:mt-[700px] lg:mt-[800px]">
         {/* Hero Image/Video */}
         <HeroImage />
 
