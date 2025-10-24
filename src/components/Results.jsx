@@ -36,45 +36,7 @@ const Results = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <span>More than </span>
-          <motion.span 
-            className="font-medium italic text-primary-accent"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          >
-            €1 Billion
-          </motion.span>
-          <span> in client sales, over </span>
-          <motion.span 
-            className="font-medium italic text-primary-accent"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-          >
-            25
-          </motion.span>
-          <span> years. </span>
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <span>Worldwide, from </span>
-          <motion.span 
-            className="font-medium italic text-primary-accent"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-          >
-            Portugal
-          </motion.span>
-          <span>.</span>
+          Boost your sales by promoting your properties with hight quality communication that amplifies reach and accelerates deals.
         </motion.p>
       </motion.div>
     </section>
