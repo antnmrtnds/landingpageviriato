@@ -10,8 +10,11 @@ const Header = () => {
     >
       <div className="relative w-full max-w-[1440px] mx-auto px-[40px] md:px-[60px] lg:px-[60px] pt-[30px] md:pt-[30px] pb-[30px] flex items-center justify-center md:justify-between">
         {/* Logo - Mobile: centered, Desktop: left aligned */}
-        <motion.div 
-          className="w-[41px] h-[64px] md:w-[45px] md:h-[73px] shrink-0"
+        <motion.a 
+          href="https://viriato.com.pt/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-[41px] h-[64px] md:w-[45px] md:h-[73px] shrink-0 block"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
@@ -21,7 +24,7 @@ const Header = () => {
             alt="Viriato Logo"
             className="w-full h-full object-cover"
           />
-        </motion.div>
+        </motion.a>
 
         {/* CTA Buttons - Hidden on mobile */}
         <motion.div 
