@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from "motion/react";
+import "./Services.css";
 
 const Services = () => {
   const [activeService, setActiveService] = useState('Virtual Tours');
@@ -148,16 +149,16 @@ One platform. One vision. One unforgettable story.`,
 
   return (
     <motion.div 
-      className="relative w-full max-w-[1440px] mx-auto mt-[0px] md:mt-[0px] lg:mt-[40px]"
+      className="services"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {/* Services Menu */}
-      <section className="relative w-full px-[40px] md:px-[60px] lg:px-[80px] py-0">
+      <section className="services__menu">
         {/* Desktop: Service menu buttons */}
-        <div className="hidden lg:flex items-center justify-center flex-nowrap gap-[15px] lg:gap-[25px] xl:gap-[50px]">
+        <div className="services__menu-desktop">
           {services.map((service, index) => {
             const isActive = service === activeService;
             
@@ -165,10 +166,7 @@ One platform. One vision. One unforgettable story.`,
               <motion.button
                 key={service}
                 onClick={() => setActiveService(service)}
-                className={`
-                  text-[16px] text-center whitespace-nowrap px-[20px] py-[10px] rounded-[20px] font-inter capitalize leading-[1.5] font-normal transition-colors border
-                  ${isActive ? 'bg-[#d29d79] text-[#1e1e1e] border-[#d29d79]' : 'text-white border-transparent hover:border-[#d29d79] hover:text-[#d29d79] hover:bg-transparent'}
-                `}
+                className={`services__menu-button ${isActive ? 'services__menu-button--active' : 'services__menu-button--inactive'}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -183,12 +181,12 @@ One platform. One vision. One unforgettable story.`,
         </div>
 
         {/* Mobile & Tablet: horizontal scroll menu with arrows */}
-        <div className="flex lg:hidden items-center relative">
+        <div className="services__menu-mobile">
           {/* Left Arrow */}
           {showLeftArrow && (
             <button
               onClick={() => scroll('left')}
-              className="absolute left-2 z-10 flex items-center justify-center w-8 h-8 bg-white/10 backdrop-blur-sm rounded-full text-primary-accent hover:bg-primary-accent hover:text-primary-bg transition-colors"
+              className="services__menu-arrow services__menu-arrow--left"
               aria-label="Scroll left"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -200,7 +198,7 @@ One platform. One vision. One unforgettable story.`,
           {/* Scrollable container */}
           <div 
             ref={scrollContainerRef}
-            className="flex items-center justify-start gap-[10px] md:gap-[20px] overflow-x-auto pb-[10px] scrollbar-hide scroll-smooth w-full px-2"
+            className="services__menu-scroll"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {services.map((service) => {
@@ -209,10 +207,7 @@ One platform. One vision. One unforgettable story.`,
                 <motion.button
                   key={service}
                   onClick={() => setActiveService(service)}
-                  className={`
-                    text-[16px] text-center whitespace-nowrap flex-shrink-0 px-[20px] py-[10px] rounded-[20px] font-inter capitalize leading-[1.5] font-normal transition-colors border
-                    ${isActive ? 'bg-[#d29d79] text-[#1e1e1e] border-[#d29d79]' : 'text-white border-transparent hover:border-[#d29d79] hover:text-[#d29d79] hover:bg-transparent'}
-                  `}
+                  className={`services__menu-button ${isActive ? 'services__menu-button--active' : 'services__menu-button--inactive'}`}
                   whileTap={{ scale: 0.95 }}
                 >
                   {service}
@@ -225,7 +220,7 @@ One platform. One vision. One unforgettable story.`,
           {showRightArrow && (
             <button
               onClick={() => scroll('right')}
-              className="absolute right-2 z-10 flex items-center justify-center w-8 h-8 bg-white/10 backdrop-blur-sm rounded-full text-primary-accent hover:bg-primary-accent hover:text-primary-bg transition-colors"
+              className="services__menu-arrow services__menu-arrow--right"
               aria-label="Scroll right"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -237,14 +232,14 @@ One platform. One vision. One unforgettable story.`,
       </section>
 
       {/* Service Content */}
-      <section className="relative w-full bg-[#191710] mt-[38px] md:mt-[32px] lg:mt-[69px] pb-[30px] lg:pb-[10px] xl:pb-[10px]">
+      <section className="services__content">
         {/* Mobile & Tablet: Stacked layout */}
-        <div className="lg:hidden px-[30px] md:px-[60px] py-0">
+        <div className="services__content-mobile">
           <AnimatePresence mode="wait">
             {activeService && serviceContent[activeService] && (
               <motion.div 
                 key={activeService}
-                className="flex flex-col gap-[36px] md:gap-[36px] items-center md:items-center"
+                className="services__content-wrapper"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -252,11 +247,7 @@ One platform. One vision. One unforgettable story.`,
               >
                 {/* Image */}
                 <motion.div 
-                  className={`relative w-full group ${
-                    activeService === 'Film' 
-                      ? 'aspect-[16/9]' 
-                      : 'aspect-[711/700] md:aspect-[769/396]'
-                  }`}
+                  className={`services__media ${activeService === 'Film' ? 'services__media--video' : ''}`}
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
@@ -266,15 +257,14 @@ One platform. One vision. One unforgettable story.`,
                       href="https://panopliaurbana.vshow.pt/varandasdomoinho/T3plus/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="relative block w-full h-full cursor-pointer"
+                      className="services__media-link"
                     >
                       <img 
                         alt="Virtual Tour" 
-                        className="w-full h-full object-contain"
                         src={serviceContent[activeService].image} 
                       />
-                      <div className="absolute inset-0 bg-[#191710]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <p className="text-white text-[18px] md:text-[24px] font-work-sans text-center px-6">
+                      <div className="services__media-overlay">
+                        <p className="services__media-overlay-text">
                           Click here to view the Virtual Tour
                         </p>
                       </div>
@@ -294,12 +284,11 @@ One platform. One vision. One unforgettable story.`,
                       <source src="/assets/video/varandas_landingpage_V2.webm" type="video/webm" />
                     </video>
                   ) : serviceContent[activeService].hasSlideshow ? (
-                    <div className="relative w-full h-full">
+                    <div className="services__slideshow">
                       <AnimatePresence mode="wait">
                         <motion.img 
                           key={currentSlideIndex}
                           alt="CGI Image"
-                          className="w-full h-full object-contain"
                           src={serviceContent[activeService].images[currentSlideIndex]}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
@@ -311,7 +300,7 @@ One platform. One vision. One unforgettable story.`,
                       {/* Navigation Arrows */}
                       <button
                         onClick={prevSlide}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full text-[#191710] hover:bg-primary-accent hover:text-primary-bg transition-colors z-10"
+                        className="services__slideshow-arrow services__slideshow-arrow--prev"
                         aria-label="Previous image"
                       >
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -321,7 +310,7 @@ One platform. One vision. One unforgettable story.`,
                       
                       <button
                         onClick={nextSlide}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full text-[#191710] hover:bg-primary-accent hover:text-primary-bg transition-colors z-10"
+                        className="services__slideshow-arrow services__slideshow-arrow--next"
                         aria-label="Next image"
                       >
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -330,16 +319,12 @@ One platform. One vision. One unforgettable story.`,
                       </button>
                       
                       {/* Slide Indicators */}
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                      <div className="services__slideshow-indicators">
                         {serviceContent[activeService].images.map((_, index) => (
                           <button
                             key={index}
                             onClick={() => setCurrentSlideIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-all ${
-                              index === currentSlideIndex 
-                                ? 'bg-primary-accent w-8' 
-                                : 'bg-white/40 hover:bg-white/60'
-                            }`}
+                            className={`services__slideshow-indicator ${index === currentSlideIndex ? 'services__slideshow-indicator--active' : ''}`}
                             aria-label={`Go to slide ${index + 1}`}
                           />
                         ))}
@@ -348,7 +333,7 @@ One platform. One vision. One unforgettable story.`,
                   ) : (
                     <img 
                       alt="" 
-                      className={`w-full h-full ${activeService === 'Marketing Suite' ? 'object-contain' : 'object-cover'}`}
+                      className={`services__media--contain`}
                       src={serviceContent[activeService].image} 
                     />
                   )}
@@ -356,19 +341,19 @@ One platform. One vision. One unforgettable story.`,
 
                 {/* Content */}
                 <motion.div 
-                  className="flex flex-col gap-[36px] items-center w-full"
+                  className="services__text"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                 >
-                  <div className="capitalize font-work-sans text-[#ffffff] w-full text-center">
-                  <p className="text-[32px] md:text-[44px] lg:text-[52px] leading-[1.5] mb-6 md:mb-6 lg:mb-8 whitespace-normal">
+                  <div className="services__title">
+                  <p className="services__title-heading">
                       {firstWords
                         ? <>
-                            <span className="font-normal">{firstWords}</span>&nbsp;
+                            <span className="services__title-normal">{firstWords}</span>&nbsp;
                           </>
                         : null}
-                      <span className="font-semibold italic text-primary-accent">{lastWord}</span>
+                      <span className="services__title-accent">{lastWord}</span>
                     </p>
                   {activeService === 'Virtual Tours' ? (
                     <>
@@ -398,18 +383,18 @@ One platform. One vision. One unforgettable story.`,
                       </p>
                     </>
                   ) : (
-                    <p className="font-light text-[18px] md:text-[24px] leading-[1.5]">
+                    <p className="services__description">
                       {serviceContent[activeService].description}
                     </p>
                   )}
                 </div>
                 <motion.button 
                   onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })} 
-                  className="border border-[#d29d79] border-solid px-[20px] py-[10px] md:px-[20px] md:py-[10px] rounded-[40px] hover:bg-[#d29d79] hover:text-[#191710] transition-colors"
+                  className="services__cta"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div className="font-work-sans text-[16px] md:text-[20px] text-center text-[#d29d79] hover:text-[#191710] leading-[1.5]">
+                  <div className="services__cta-text">
                     Learn More
                   </div>
                 </motion.button>
@@ -420,18 +405,14 @@ One platform. One vision. One unforgettable story.`,
         </div>
 
         {/* Desktop: Side by side layout */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-[40px] px-[64px] py-0 h-[422px] xl:h-[625px] items-center">
+        <div className="services__content-desktop">
           <AnimatePresence mode="wait">
             {activeService && serviceContent[activeService] && (
               <>
                 {/* Image */}
                 <motion.div 
                   key={`image-${activeService}`}
-                  className={`relative w-full group ${
-                    activeService === 'Film' 
-                      ? 'aspect-[16/9]' 
-                      : 'aspect-[711/700]'
-                  }`}
+                  className={`services__media ${activeService === 'Film' ? 'services__media--video' : ''}`}
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -30 }}
@@ -442,15 +423,14 @@ One platform. One vision. One unforgettable story.`,
                       href="https://panopliaurbana.vshow.pt/varandasdomoinho/T3plus/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="relative block w-full h-full cursor-pointer"
+                      className="services__media-link"
                     >
                       <img 
                         alt="Virtual Tour" 
-                        className="w-full h-full object-contain"
                         src={serviceContent[activeService].image} 
                       />
-                      <div className="absolute inset-0 bg-[#191710]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <p className="text-white text-[20px] font-work-sans text-center px-6">
+                      <div className="services__media-overlay">
+                        <p className="services__media-overlay-text">
                           Click here to view the Virtual Tour
                         </p>
                       </div>
@@ -458,7 +438,6 @@ One platform. One vision. One unforgettable story.`,
                   ) : serviceContent[activeService].hasVideo ? (
                     <video
                       ref={videoRef}
-                      className="w-full h-full object-cover"
                       autoPlay
                       loop
                       muted
@@ -470,12 +449,11 @@ One platform. One vision. One unforgettable story.`,
                       <source src="/assets/video/varandas_landingpage_V2.webm" type="video/webm" />
                     </video>
                   ) : serviceContent[activeService].hasSlideshow ? (
-                    <div className="relative w-full h-full">
+                    <div className="services__slideshow">
                       <AnimatePresence mode="wait">
                         <motion.img 
                           key={currentSlideIndex}
                           alt="CGI Image"
-                          className="w-full h-full object-contain"
                           src={serviceContent[activeService].images[currentSlideIndex]}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
@@ -487,7 +465,7 @@ One platform. One vision. One unforgettable story.`,
                       {/* Navigation Arrows */}
                       <button
                         onClick={prevSlide}
-                        className="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full text-[#191710] hover:bg-primary-accent hover:text-primary-bg transition-colors z-10"
+                        className="services__slideshow-arrow services__slideshow-arrow--prev"
                         aria-label="Previous image"
                       >
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -497,7 +475,7 @@ One platform. One vision. One unforgettable story.`,
                       
                       <button
                         onClick={nextSlide}
-                        className="absolute right-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full text-[#191710] hover:bg-primary-accent hover:text-primary-bg transition-colors z-10"
+                        className="services__slideshow-arrow services__slideshow-arrow--next"
                         aria-label="Next image"
                       >
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -506,16 +484,12 @@ One platform. One vision. One unforgettable story.`,
                       </button>
                       
                       {/* Slide Indicators */}
-                      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                      <div className="services__slideshow-indicators">
                         {serviceContent[activeService].images.map((_, index) => (
                           <button
                             key={index}
                             onClick={() => setCurrentSlideIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-all ${
-                              index === currentSlideIndex 
-                                ? 'bg-primary-accent w-8' 
-                                : 'bg-white/40 hover:bg-white/60'
-                            }`}
+                            className={`services__slideshow-indicator ${index === currentSlideIndex ? 'services__slideshow-indicator--active' : ''}`}
                             aria-label={`Go to slide ${index + 1}`}
                           />
                         ))}
@@ -524,7 +498,7 @@ One platform. One vision. One unforgettable story.`,
                   ) : (
                     <img 
                       alt="" 
-                      className={`w-full h-full ${activeService === 'Marketing Suite' ? 'object-contain' : 'object-cover'}`}
+                      className="services__media--contain"
                       src={serviceContent[activeService].image} 
                     />
                   )}
@@ -533,20 +507,20 @@ One platform. One vision. One unforgettable story.`,
                 {/* Content */}
                 <motion.div 
                   key={`content-${activeService}`}
-                  className="flex flex-col gap-[30px] items-start"
+                  className="services__text"
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 30 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                <div className="capitalize font-work-sans text-white w-full text-left">
-                <p className="text-[52px] leading-[1.5] mb-0 whitespace-normal">
+                <div className="services__title">
+                <p className="services__title-heading">
                     {firstWords
                       ? <>
-                          <span className="font-normal">{firstWords}</span>&nbsp;
+                          <span className="services__title-normal">{firstWords}</span>&nbsp;
                         </>
                       : null}
-                    <span className="font-semibold italic text-primary-accent">{lastWord}</span>
+                    <span className="services__title-accent">{lastWord}</span>
                   </p>
                 </div>
                 {activeService === 'Virtual Tours' ? (
@@ -577,13 +551,13 @@ One platform. One vision. One unforgettable story.`,
                     </p>
                   </>
                 ) : (
-                  <p className="text-white font-light text-[18px] leading-[1.5]">
+                  <p className="services__description">
                     {serviceContent[activeService].description}
                   </p>
                 )}
                 <motion.button 
                   onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })} 
-                  className="squircle-btn-outline text-[18px]"
+                  className="squircle-btn-outline services__cta-text"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from "motion/react";
 import emailjs from '@emailjs/browser';
+import "./ContactForm.css";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -83,10 +84,10 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact-form" className="relative w-full max-w-[1440px] mx-auto mt-[30px] md:mt-[12px] px-[40px] md:px-[62px] py-[30px] md:py-[124px] min-h-[629px] md:min-h-[1009px] flex items-center justify-center">
+    <section id="contact-form" className="contact-form">
       
       <motion.div 
-        className="relative z-10 w-full max-w-[320px] md:max-w-none flex flex-col gap-[30px] md:gap-0 md:justify-between md:min-h-[570px] md:px-[80px]"
+        className="contact-form__container"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.2 }}
@@ -94,13 +95,13 @@ const ContactForm = () => {
       >
         {/* Heading - Hidden on mobile */}
         <motion.div 
-          className="hidden md:flex flex-col gap-[30px]"
+          className="contact-form__heading"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="font-work-sans font-semibold text-[74px] leading-none text-white">
+          <h2>
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -127,8 +128,7 @@ const ContactForm = () => {
               image
             </motion.span>
           </h2>
-            <motion.h3 
-              className="font-work-sans font-light text-[18px] text-white leading-[1.2] whitespace-pre"
+            <motion.h3
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -140,28 +140,28 @@ const ContactForm = () => {
 
         {/* Mobile heading */}
         <motion.div 
-          className="md:hidden flex flex-col gap-[30px]"
+          className="contact-form__mobile-heading"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h3 className="font-work-sans font-light text-[18px] text-white leading-[1.2] whitespace-pre">
+          <h3>
             Let's discuss your project.
           </h3>
         </motion.div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="mt-12 md:mt-16 lg:mt-20 flex flex-col gap-[30px]">
+        <form onSubmit={handleSubmit} className="contact-form__form">
           {/* Name Field */}
           <motion.div 
-            className="flex flex-col gap-0"
+            className="contact-form__field"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           >
-            <label htmlFor="name" className="font-inter font-normal text-[14px] md:text-[18px] text-white leading-[1.2] whitespace-pre mb-[30px]">
+            <label htmlFor="name" className="contact-form__label">
               Name*
             </label>
             <input
@@ -170,20 +170,20 @@ const ContactForm = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="bg-transparent border-b border-white text-white font-inter text-[14px] md:text-[18px] py-2 md:py-3 outline-none focus:border-primary-accent transition-colors"
+              className="contact-form__input"
               required
             />
           </motion.div>
 
           {/* Email Field */}
           <motion.div 
-            className="flex flex-col gap-0"
+            className="contact-form__field"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           >
-            <label htmlFor="email" className="font-inter font-normal text-[14px] md:text-[18px] text-white leading-[1.2] whitespace-pre mb-[30px]">
+            <label htmlFor="email" className="contact-form__label">
               Email*
             </label>
             <input
@@ -192,20 +192,20 @@ const ContactForm = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="bg-transparent border-b border-white text-white font-inter text-[14px] md:text-[18px] py-2 md:py-3 outline-none focus:border-primary-accent transition-colors"
+              className="contact-form__input"
               required
             />
           </motion.div>
 
           {/* Company Field */}
           <motion.div 
-            className="flex flex-col gap-0"
+            className="contact-form__field"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
           >
-            <label htmlFor="company" className="font-inter font-normal text-[14px] md:text-[18px] text-white leading-[1.2] whitespace-pre mb-[30px]">
+            <label htmlFor="company" className="contact-form__label">
               Company*
             </label>
             <input
@@ -214,20 +214,20 @@ const ContactForm = () => {
               name="company"
               value={formData.company}
               onChange={handleChange}
-              className="bg-transparent border-b border-white text-white font-inter text-[14px] md:text-[18px] py-2 md:py-3 outline-none focus:border-primary-accent transition-colors"
+              className="contact-form__input"
               required
             />
           </motion.div>
 
           {/* Project Type Field */}
           <motion.div 
-            className="flex flex-col gap-0"
+            className="contact-form__field"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
           >
-            <label htmlFor="projectType" className="font-inter font-normal text-[14px] md:text-[18px] text-white leading-[1.2] whitespace-pre mb-[30px]">
+            <label htmlFor="projectType" className="contact-form__label">
               Project Type*
             </label>
             <input
@@ -236,20 +236,20 @@ const ContactForm = () => {
               name="projectType"
               value={formData.projectType}
               onChange={handleChange}
-              className="bg-transparent border-b border-white text-white font-inter text-[14px] md:text-[18px] py-2 md:py-3 outline-none focus:border-primary-accent transition-colors"
+              className="contact-form__input"
               required
             />
           </motion.div>
 
           {/* Message Field */}
           <motion.div 
-            className="flex flex-col gap-0"
+            className="contact-form__field"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
           >
-            <label htmlFor="message" className="font-inter font-normal text-[14px] md:text-[18px] text-white leading-[1.2] whitespace-pre mb-[30px]">
+            <label htmlFor="message" className="contact-form__label">
               Message*
             </label>
             <textarea
@@ -258,46 +258,46 @@ const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               rows="1"
-              className="bg-transparent border-b border-white text-white font-inter text-[14px] md:text-[18px] py-2 md:py-3 outline-none focus:border-primary-accent transition-colors resize-none"
+              className="contact-form__textarea"
               required
             />
           </motion.div>
 
           {/* Consent Label */}
           <motion.div 
-            className="flex flex-col gap-0"
+            className="contact-form__field"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.6, ease: "easeOut" }}
           >
-            <label className="font-inter font-normal text-[14px] md:text-[18px] text-white leading-[1.2] whitespace-pre">
+            <label className="contact-form__label">
               Consent checkbox
             </label>
           </motion.div>
 
           {/* Consent Checkbox */}
           <motion.div 
-            className="flex items-center gap-[10px]"
+            className="contact-form__checkbox-wrapper"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
           >
-            <label htmlFor="consent" className="flex items-center gap-[10px] cursor-pointer">
-              <div className="relative flex-shrink-0">
+            <label htmlFor="consent" className="contact-form__checkbox-label">
+              <div className="contact-form__checkbox-custom">
                 <input
                   type="checkbox"
                   id="consent"
                   name="consent"
                   checked={formData.consent}
                   onChange={handleChange}
-                  className="sr-only peer"
+                  className="contact-form__checkbox"
                   required
                 />
-                <div className="w-[18px] h-[18px] rounded-full border border-white peer-checked:bg-primary-accent peer-checked:border-primary-accent transition-colors" />
+                <div className="contact-form__checkbox-box" />
               </div>
-              <span className="font-inter font-normal text-[12px] text-white leading-[1.2] whitespace-pre">
+              <span className="contact-form__checkbox-text">
                 I agree to receive communications from Viritato.
               </span>
             </label>
@@ -309,7 +309,7 @@ const ContactForm = () => {
           type="submit"
           onClick={handleSubmit}
           disabled={isSubmitting}
-          className={`mt-6 md:mt-8 squircle-btn-outline text-[12px] md:text-[18px] capitalize self-start ${
+          className={`squircle-btn-outline contact-form__submit ${
             isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
           }`}
           initial={{ opacity: 0, y: 20 }}
@@ -327,9 +327,9 @@ const ContactForm = () => {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-6 md:mt-8"
+            className="contact-form__status contact-form__status--success"
           >
-            <p className="text-primary-accent font-inter text-[14px] md:text-[18px] font-light">
+            <p>
               Message sent successfully!
             </p>
           </motion.div>
@@ -339,9 +339,9 @@ const ContactForm = () => {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-6 md:mt-8"
+            className="contact-form__status contact-form__status--error"
           >
-            <p className="text-white font-inter text-[14px] md:text-[18px] font-light">
+            <p>
               Failed to send message. Please try again.
             </p>
           </motion.div>

@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { inView } from "motion";
 import { useEffect, useRef } from "react";
+import "./HeroImage.css";
 
 const HeroImage = () => {
   const videoRef = useRef(null);
@@ -22,10 +23,10 @@ const HeroImage = () => {
   };
 
   return (
-    <section className="relative w-full mt-[28px] md:mt-[113px] overflow-hidden bg-primary-bg">
+    <section className="hero-image">
       <motion.div 
         ref={containerRef}
-        className="relative w-full aspect-[320/226] md:aspect-[768/543] lg:aspect-[1024/724] xl:aspect-[16/9]"
+        className="hero-image__container"
         initial={{ opacity: 0, scale: 1.1 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -33,7 +34,7 @@ const HeroImage = () => {
       >
         <video
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="hero-image__video"
           autoPlay
           loop
           muted

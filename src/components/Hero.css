@@ -1,0 +1,141 @@
+/* Hero Component Styles */
+
+/* Mobile (390px) - Base styles */
+.hero {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: var(--primary-bg, #191710);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  z-index: 5;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.hero__heading {
+  font-size: 30px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  line-height: 1.5;
+}
+
+.hero__heading-text {
+  color: white;
+}
+
+.hero__heading-accent {
+  color: #d29d79;
+  font-style: italic;
+}
+
+.hero__body {
+  font-size: 16px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  color: white;
+  line-height: 1.5;
+}
+
+.hero__body p {
+  margin-bottom: 0;
+}
+
+.hero__body-mobile {
+  display: block;
+}
+
+.hero__body-desktop {
+  display: none;
+}
+
+.hero__cta {
+  font-size: 14px;
+  white-space: nowrap;
+  margin-bottom: 40px;
+}
+
+/* Tablet (768px) */
+@media (min-width: 768px) {
+  .hero {
+    position: fixed;
+    top: 103px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .hero__content {
+    max-width: 649px;
+  }
+
+  .hero__heading {
+    font-size: 54px;
+  }
+
+  .hero__body {
+    font-size: 16px;
+  }
+
+  .hero__body-mobile {
+    display: none;
+  }
+
+  .hero__body-desktop {
+    display: block;
+  }
+
+  .hero__cta {
+    margin-bottom: 48px;
+  }
+}
+
+/* Desktop (1024px) */
+@media (min-width: 1024px) {
+  .hero {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 80px;
+    padding-bottom: 50px;
+  }
+
+  .hero__content {
+    max-width: 731px;
+  }
+
+  .hero__body {
+    font-size: 18px;
+  }
+
+  .hero__cta {
+    margin-bottom: 50px;
+  }
+}
+
+/* Extra Large Desktop (1280px) */
+@media (min-width: 1280px) {
+  .hero__content {
+    max-width: 826px;
+  }
+}
+

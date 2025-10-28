@@ -1,0 +1,50 @@
+/* HeroImage Component Styles */
+
+/* Mobile (390px) - Base styles */
+.hero-image {
+  position: relative;
+  width: 100%;
+  margin-top: 28px;
+  overflow: hidden;
+  background-color: var(--primary-bg, #1a1a1a);
+}
+
+.hero-image__container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 320 / 226;
+}
+
+.hero-image__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tablet (768px) */
+@media (min-width: 768px) {
+  .hero-image {
+    margin-top: 113px;
+  }
+
+  .hero-image__container {
+    aspect-ratio: 768 / 543;
+  }
+}
+
+/* Desktop (1024px) */
+@media (min-width: 1024px) {
+  .hero-image__container {
+    aspect-ratio: 1024 / 724;
+  }
+}
+
+/* Extra Large Desktop (1280px) */
+@media (min-width: 1280px) {
+  .hero-image__container {
+    aspect-ratio: 16 / 9;
+  }
+}
+
