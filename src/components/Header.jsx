@@ -41,13 +41,6 @@ const Header = () => {
           >
             Contact Us
           </motion.button>
-          <motion.button 
-            className="squircle-btn-outline text-[14px] whitespace-nowrap"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Brochure
-          </motion.button>
         </motion.div>
       </div>
     </motion.header>

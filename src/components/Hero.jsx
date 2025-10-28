@@ -63,7 +63,7 @@ const Hero = () => {
       {/* CTA Button */}
       <motion.button 
         onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })} 
-        className="squircle-btn-outline text-[12px] md:text-[14px] capitalize mb-[40px] md:mb-[48px] lg:mb-[50px]"
+        className="squircle-btn-outline text-[14px] whitespace-nowrap mb-[40px] md:mb-[48px] lg:mb-[50px]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
