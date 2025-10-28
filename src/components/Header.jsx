@@ -34,11 +34,12 @@ const Header = () => {
           transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
         >
           <motion.button 
+            onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })} 
             className="squircle-btn-outline text-[14px] whitespace-nowrap"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Contact us
+            Contact Us
           </motion.button>
           <motion.button 
             className="squircle-btn-outline text-[14px] whitespace-nowrap"

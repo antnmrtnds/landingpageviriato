@@ -28,12 +28,9 @@ export default {
         'section': '140px',
       },
       screens: {
-        'sm': '640px',
-        'md': '768px',
-        'lg': '1024px',
-        'xl': '1280px',
-        '2xl': '1536px',
-        '3xl': '1920px',
+        'md': '768px',   // Tablets
+        'lg': '1024px',  // Desktops
+        'xl': '1440px',  // Large desktops (aligns with max-w-[1440px])
       },
       maxWidth: {
         'mobile': '320px',
